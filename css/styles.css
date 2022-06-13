@@ -21,3 +21,47 @@ p {
   width: 80%;
   margin: 20px auto;
 }
+
+input {
+  display: block;
+  width: 93%;
+  margin: 0 auto;
+  background-color: #ee6e73;
+  border: none;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  height: 30px;
+  border-radius: 15px;
+  width: 75px;
+  margin: 10px auto;
+  font-size: 18px;
+}
+
+.search {
+  display: block;
+  background-color: #26a69a;
+}
+
+.results {
+  min-height: 250px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reset {
+  background-color: #ffc107;
+}
+
+.compare {
+  background-color: #343a40;
+  color: #6d6e70;
+  width: 100px;
+}
