@@ -31,6 +31,7 @@ input {
   height: 50px;
   border-radius: 25px;
   font-size: 16px;
+  text-indent: 10px;
 }
 
 button {
@@ -48,6 +49,26 @@ button {
 }
 
 .results {
+  list-style: none;
+  min-height: 250px;
+  padding: 0;
+}
+
+li {
+  background-color: #d2b48c;
+  border-radius: 9px;
+  margin-bottom: 1px;
+}
+
+.result-text {
+  color: black;
+  margin: 10px;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   min-height: 250px;
 }
 
