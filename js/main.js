@@ -18,6 +18,7 @@ searchButtons[0].addEventListener('click', () => {
     for (let i = 0; i < 5; i++) {
       const currentResult = results[i];
       const searchResult = document.createElement('li');
+      searchResult.setAttribute('id', results[i].id);
 
       const rowDiv = document.createElement('div');
       rowDiv.setAttribute('class', 'row');
@@ -29,6 +30,44 @@ searchButtons[0].addEventListener('click', () => {
       rowDiv.appendChild(title);
 
       firstResults.appendChild(searchResult);
+
+      searchResult.addEventListener('click', event => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `https://api.themoviedb.org/3/movie/${searchResult.getAttribute('id')}/credits?api_key=b638ba27b8c344059fe14ec066253c2e`);
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          const cast = xhr.response.cast;
+
+          while (firstResults.hasChildNodes()) {
+            firstResults.removeChild(firstResults.firstChild);
+          }
+
+          const castDropdown = document.createElement('li');
+          castDropdown.className = 'dropdown';
+
+          const rowDiv = document.createElement('div');
+          rowDiv.setAttribute('class', 'row');
+          castDropdown.appendChild(rowDiv);
+
+          const castHeader = document.createElement('h2');
+          castHeader.textContent = 'Cast';
+          rowDiv.appendChild(castHeader);
+
+          const castContainer = document.createElement('li');
+          castContainer.className = 'cast-container';
+
+          for (let i = 0; i < cast.length; i++) {
+            const castMember = document.createElement('div');
+            castMember.className = 'cast-member';
+            castMember.textContent = cast[i].name + ' as ' + cast[i].character;
+            castContainer.appendChild(castMember);
+          }
+
+          firstResults.appendChild(castDropdown);
+          firstResults.appendChild(castContainer);
+        });
+        xhr.send();
+      });
     }
   });
   xhr.send();
@@ -41,6 +80,7 @@ searchButtons[1].addEventListener('click', () => {
   while (secondResults.hasChildNodes()) {
     secondResults.removeChild(secondResults.firstChild);
   }
+
   var xhr = new XMLHttpRequest();
   xhr.open('GET', `https://api.themoviedb.org/3/search/movie?api_key=b638ba27b8c344059fe14ec066253c2e&query=${searchedMovie.value}`);
   xhr.responseType = 'json';
@@ -49,6 +89,7 @@ searchButtons[1].addEventListener('click', () => {
     for (let i = 0; i < 5; i++) {
       const currentResult = results[i];
       const searchResult = document.createElement('li');
+      searchResult.setAttribute('id', results[i].id);
 
       const rowDiv = document.createElement('div');
       rowDiv.setAttribute('class', 'row');
@@ -60,6 +101,44 @@ searchButtons[1].addEventListener('click', () => {
       rowDiv.appendChild(title);
 
       secondResults.appendChild(searchResult);
+
+      searchResult.addEventListener('click', event => {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `https://api.themoviedb.org/3/movie/${searchResult.getAttribute('id')}/credits?api_key=b638ba27b8c344059fe14ec066253c2e`);
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          const cast = xhr.response.cast;
+
+          while (secondResults.hasChildNodes()) {
+            secondResults.removeChild(secondResults.firstChild);
+          }
+
+          const castDropdown = document.createElement('li');
+          castDropdown.className = 'dropdown';
+
+          const rowDiv = document.createElement('div');
+          rowDiv.setAttribute('class', 'row');
+          castDropdown.appendChild(rowDiv);
+
+          const castHeader = document.createElement('h2');
+          castHeader.textContent = 'Cast';
+          rowDiv.appendChild(castHeader);
+
+          const castContainer = document.createElement('li');
+          castContainer.className = 'cast-container';
+
+          for (let i = 0; i < cast.length; i++) {
+            const castMember = document.createElement('div');
+            castMember.className = 'cast-member';
+            castMember.textContent = cast[i].name + ' as ' + cast[i].character;
+            castContainer.appendChild(castMember);
+          }
+
+          secondResults.appendChild(castDropdown);
+          secondResults.appendChild(castContainer);
+        });
+        xhr.send();
+      });
     }
   });
   xhr.send();

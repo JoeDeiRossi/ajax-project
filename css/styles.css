@@ -65,6 +65,22 @@ li {
   margin: 10px;
 }
 
+.dropdown {
+  border-radius: 0;
+}
+
+.cast-container {
+  background-color: #562b81;
+}
+
+.cast-member {
+  margin-bottom: 1px;
+  background-color: #d2b48c;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+}
+
 .button-container {
   display: flex;
   justify-content: space-around;
