@@ -1,10 +1,17 @@
 const searchButtons = document.querySelectorAll('.search');
-const firstResults = document.querySelector('.first');
-const secondResults = document.querySelector('.second');
+const firstResults = document.querySelector('.results.first');
+const secondResults = document.querySelector('.results.second');
 
 searchButtons[0].addEventListener('click', () => {
+  const searchedMovie = document.querySelector('input.first');
+  searchedMovie.style.display = 'none';
+  searchButtons[0].style.display = 'none';
+  while (firstResults.hasChildNodes()) {
+    firstResults.removeChild(firstResults.firstChild);
+  }
+
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.themoviedb.org/3/search/movie?api_key=b638ba27b8c344059fe14ec066253c2e&query=joker');
+  xhr.open('GET', `https://api.themoviedb.org/3/search/movie?api_key=b638ba27b8c344059fe14ec066253c2e&query=${searchedMovie.value}`);
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
     const results = xhr.response.results;
@@ -28,8 +35,14 @@ searchButtons[0].addEventListener('click', () => {
 });
 
 searchButtons[1].addEventListener('click', () => {
+  const searchedMovie = document.querySelector('input.second');
+  searchedMovie.style.display = 'none';
+  searchButtons[1].style.display = 'none';
+  while (secondResults.hasChildNodes()) {
+    secondResults.removeChild(secondResults.firstChild);
+  }
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://api.themoviedb.org/3/search/movie?api_key=b638ba27b8c344059fe14ec066253c2e&query=batman');
+  xhr.open('GET', `https://api.themoviedb.org/3/search/movie?api_key=b638ba27b8c344059fe14ec066253c2e&query=${searchedMovie.value}`);
   xhr.responseType = 'json';
   xhr.addEventListener('load', () => {
     const results = xhr.response.results;

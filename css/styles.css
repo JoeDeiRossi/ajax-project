@@ -65,13 +65,6 @@ li {
   margin: 10px;
 }
 
-.footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  min-height: 250px;
-}
-
 .button-container {
   display: flex;
   justify-content: space-around;
@@ -85,4 +78,10 @@ li {
   background-color: #343a40;
   color: #6d6e70;
   width: 100px;
+}
+
+@media (min-width: 768px) {
+  .results {
+    min-height: 150px;
+  }
 }
