@@ -5,14 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
+    <div class="row">
+      <div class="column-full">
+        <h1>Movie People</h1>
+        <hr>
+        <p>Search for two movies to see who was in them and who worked on them!</p>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="row">
+      <div class="column-one-half">
+        <input type="search" class="first">
+        <button class="search">Search</button>
+        <ul class="results first"></ul>
+      </div>
+      <div class="column-one-half">
+        <input type="search" class="second">
+        <button class="search">Search</button>
+        <ul class="results second"></ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-full">
+        <div class="button-container">
+          <button class="reset">Reset</button>
+          <button class="compare" disabled>Compare</button>
+          <button class="reset">Reset</button>
+        </div>
+        <hr>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
